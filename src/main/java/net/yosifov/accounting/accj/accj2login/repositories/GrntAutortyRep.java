@@ -1,4 +1,4 @@
-package net.yosifov.accounting.accj.accj2login.rep;
+package net.yosifov.accounting.accj.accj2login.repositories;
 
 
 

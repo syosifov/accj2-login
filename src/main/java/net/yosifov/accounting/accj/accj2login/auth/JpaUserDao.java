@@ -1,7 +1,7 @@
 package net.yosifov.accounting.accj.accj2login.auth;
 
 import net.yosifov.accounting.accj.accj2login.entities.SecApplicationUser;
-import net.yosifov.accounting.accj.accj2login.rep.ApplicationUserRep;
+import net.yosifov.accounting.accj.accj2login.repositories.ApplicationUserRep;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
