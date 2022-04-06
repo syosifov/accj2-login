@@ -19,6 +19,8 @@ public class BeansConfig {
     @Autowired
     private ApplicationUserService applicationUserService;
 
+
+
     @Value("${application.jwt.secretKeyString}")
     private String secretKeyString;
 
