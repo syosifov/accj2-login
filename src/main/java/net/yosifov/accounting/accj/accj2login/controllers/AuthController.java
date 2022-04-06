@@ -93,9 +93,11 @@ public class AuthController {
         Jws<Claims> claimsJws;
         SecApplicationUser applicationUser;
         try {
-            claimsJws = Jwts.parser()           //TODO
-                            .setSigningKey(appKey)
-                            .parseClaimsJws(refreshToken);
+            claimsJws = Jwts
+                    .parserBuilder()
+                    .setSigningKey(appSecretKey)
+                    .build()
+                    .parseClaimsJws(refreshToken);
             Claims body = claimsJws.getBody();
             String sub = body.get("sub",String.class);
             Boolean isRefreshToken = body.get("refreshToken", Boolean.class);
