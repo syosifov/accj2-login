@@ -60,9 +60,7 @@ public class AuthController {
         Date issuedAt = new Date();
         Date expDate = new Date(issuedAt.getTime() + tokenExpirationAfterMinutes * 60 * 1000);
         String token = Jwts.builder()
-//                .setSubject(authResult.getName())
                 .setSubject(applicationUser.getUsername())
-//                .claim("authorities_r", authResult.getAuthorities())
                 .claim("authorities", applicationUser.getAuthorities())
                 .claim("id", applicationUser.getId())
                 .setIssuedAt(issuedAt)
@@ -74,7 +72,7 @@ public class AuthController {
                 .setSubject(applicationUser.getUsername())
                 .claim("refreshToken", true)
                 .setIssuedAt(issuedAt)
-                .setExpiration(java.sql.Date.valueOf(LocalDate.now().plusYears(100)))
+                .setExpiration(java.sql.Date.valueOf(LocalDate.now().plusYears(1)))
                 .signWith(appSecretKey)
                 .compact();
 
@@ -82,7 +80,9 @@ public class AuthController {
         return new AuthResp(token,
                             issuedAt.getTime(),
                             expDate.getTime(),
-                            refreshToken );
+                            refreshToken,
+                            issuedAt.toString(),
+                            expDate.toString());
     }
 
     @PostMapping("refresh")

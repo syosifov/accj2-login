@@ -6,6 +6,8 @@ public class AuthResp {
     private long issuedAt;
     private long expiresAt;
     private String refreshToken;
+    private String issuedAtTime;
+    private String expiresAtTime;
 
     public AuthResp() {
     }
@@ -13,11 +15,15 @@ public class AuthResp {
     public AuthResp(String token,
                     long issuedAt,
                     long expiresAt,
-                    String refreshToken) {
+                    String refreshToken,
+                    String issuedAtTime,
+                    String expiresAtTime) {
         this.token = token;
         this.issuedAt = issuedAt;
         this.expiresAt = expiresAt;
         this.refreshToken = refreshToken;
+        this.issuedAtTime = issuedAtTime;
+        this.expiresAtTime = expiresAtTime;
     }
 
     public String getRefreshToken() {
@@ -50,5 +56,21 @@ public class AuthResp {
 
     public void setIssuedAt(long issuedAt) {
         this.issuedAt = issuedAt;
+    }
+
+    public String getIssuedAtTime() {
+        return issuedAtTime;
+    }
+
+    public void setIssuedAtTime(String issuedAtTime) {
+        this.issuedAtTime = issuedAtTime;
+    }
+
+    public String getExpiresAtTime() {
+        return expiresAtTime;
+    }
+
+    public void setExpiresAtTime(String expiresAtTime) {
+        this.expiresAtTime = expiresAtTime;
     }
 }
